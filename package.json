@@ -1,0 +1,31 @@
+{
+  "name": "node-phpfpm",
+  "version": "0.0.1",
+  "description": "nodejs run php scripts via phpfpm",
+  "main": "index.js",
+  "dependencies": {
+    "fastcgi-client": "^0.0.1-alpha.4",
+    "form-urlencoded": "^0.1.5",
+    "urlencode-for-php": "0.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/longbill/node-phpfpm.git"
+  },
+  "keywords": [
+    "nodejs",
+    "php",
+    "phpfpm",
+    "php-fpm"
+  ],
+  "author": "Chunlong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/longbill/node-phpfpm/issues"
+  },
+  "homepage": "https://github.com/longbill/node-phpfpm"
+}
