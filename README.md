@@ -244,3 +244,7 @@ MIT
 ## Thanks
 
 This project is based on the great work of `node-fastcgi-client` written by LastLeaf. [LastLeaf/node-fastcgi-client](https://github.com/LastLeaf/node-fastcgi-client)
+
+## Links
+
+[How to execute PHP scripts with Node.JS](http://jszen.com/how-to-execute-php-scripts-with-nodejs.8.html)
