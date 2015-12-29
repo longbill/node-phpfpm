@@ -36,10 +36,10 @@ var phpfpm = new PHPFPM(configObject);
 configObject may have the following keys:
 
 
-* `documentRoot` <optional> [string] the document root folder of PHP scripts. must ends with /
-* `host` <optional> [string] the ip or host name of php-fpm server (default: 127.0.0.1)
-* `port` <optional> [int] the port of php-fpm server ( default: 9000 )
-* `sockFile` <optional> [string] use the unix sock file instead of 127.0.0.1:9000 to connect php-fpm server 
+* `documentRoot` optional [string] the document root folder of PHP scripts. must ends with /
+* `host` optional [string] the ip or host name of php-fpm server (default: 127.0.0.1)
+* `port` optional [int] the port of php-fpm server ( default: 9000 )
+* `sockFile` optional [string] use the unix sock file instead of 127.0.0.1:9000 to connect php-fpm server 
 
 
 ## APIs
@@ -51,12 +51,12 @@ available keys in options object
 
 * `uri` [string] path to your phpfile
 * `url` <optinal> [string] alias of uri
-* `method` <optional> [string] GET or POST (default: GET)
-* `form` <optional> [object] form_data that will be send with content-type: application/x-www-form-urlencoded 
-* `json` <optional> [object] json data that will be send with content-type: application/json 
-* `body` <optional> [string] raw post body data
-* `contentType` <optional> [string] the content-type header
-* `contentLength` <optional> [string] the content-length header
+* `method` optional [string] GET or POST (default: GET)
+* `form` optional [object] form_data that will be send with content-type: application/x-www-form-urlencoded 
+* `json` optional [object] json data that will be send with content-type: application/json 
+* `body` optional [string] raw post body data
+* `contentType` optional [string] the content-type header
+* `contentLength` optional [string] the content-length header
 
 
 if you send a string as `options`, it will be converted to:
