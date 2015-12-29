@@ -26,6 +26,22 @@ phpfpm.run('test.php', function(err, output, errors)
 });
 ```
 
+## Configuration
+
+```js
+var phpfpm = new PHPFPM(configObject);
+```
+
+configObject may have the following keys:
+
+```
+{
+	documentRoot: <optional> [string] ' the document root folder of PHP scripts. must ends with /',
+	host: <optional> [string] ' the ip or host name of php-fpm server' (default: 127.0.0.1),
+	port: <optional> [int] the port of php-fpm server ( default: 9000 ),
+	sockFile: <optional> [string] ' use the unix sock file instead of 127.0.0.1:9000 to connect php-fpm server '
+}
+```
 
 
 ## APIs
@@ -70,6 +86,102 @@ function(err, output, phpErrors)
 	
 	console.log(err, output, phpErrors); 
 }
+```
+
+## Demo
+
+Simeple php request with no parameters
+```js
+phpfpm.run('test1.php', function(err, output, phpErrors)
+{
+	console.log(err, output, phpErrors);
+});
+```
+
+Send data via GET method
+```js
+phpfpm.run('test2.php?a=b&c=d&e[0]=1&e[1]=2', function(err, output, phpErrors)
+{
+	console.log(err, output, phpErrors);
+});
+```
+
+Send from data via POST method
+```js
+phpfpm.run(
+{
+	uri: 'test3.php',
+	form: 
+	{
+		a:'a',
+		b:'b'
+	}
+}, function(err, output, phpErrors)
+{
+	console.log(err, output, phpErrors);
+});
+```
+
+Send json data with POST method
+```js
+phpfpm.run(
+{
+	uri: 'test4.php',
+	json: 
+	{
+		a:'a',
+		b:'b'
+	}
+}, function(err, output, phpErrors)
+{
+	console.log(err, output, phpErrors);
+});
+```
+
+Send form data with GET method
+```js
+phpfpm.run(
+{
+	uri: 'test2.php',
+	method: 'GET',
+	form: 
+	{
+		a:'a',
+		b:'b'
+	}
+}, function(err, output, phpErrors)
+{
+	console.log(err, output, phpErrors);
+});
+```
+
+Send form data and query string with GET method
+```js
+phpfpm.run(
+{
+	uri: 'test2.php?c=cc',
+	method: 'GET',
+	form: 
+	{
+		a:'a',
+		b:'b'
+	}
+}, function(err, output, phpErrors)
+{
+	console.log(err, output, phpErrors);
+});
+```
+
+Send raw body data with POST method
+```js
+phpfpm.run(
+{
+	uri: 'test5.php',
+	body: 'abc123'
+}, function(err, output, phpErrors)
+{
+	console.log(err, output, phpErrors);
+});
 ```
 
 ## License
