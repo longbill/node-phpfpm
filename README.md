@@ -240,3 +240,7 @@ echo file_get_contents('php://input');
 
 ## License
 MIT
+
+## Thanks
+
+This project is based on the great work of `node-fastcgi-client` written by LastLeaf. [LastLeaf/node-fastcgi-client](https://github.com/LastLeaf/node-fastcgi-client)
