@@ -4,7 +4,7 @@
   "description": "nodejs run php scripts via phpfpm",
   "main": "index.js",
   "dependencies": {
-    "fastcgi-client": "^0.0.1-alpha.4",
+    "fastcgi-client": "0.0.1",
     "urlencode-for-php": "^1.0.2"
   },
   "devDependencies": {},
