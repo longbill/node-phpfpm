@@ -1,6 +1,6 @@
 {
   "name": "node-phpfpm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "nodejs run php scripts via phpfpm",
   "main": "index.js",
   "dependencies": {
