@@ -43,7 +43,7 @@ phpfpm.prototype._clearQueue = function()
 /**
  * send command to phpfpm to run a php script
  */
-phpfpm.prototype.run = function(info, cb, fastcgiParams)
+phpfpm.prototype.run = function(info, cb)
 {
 	if (typeof info == 'string') info = { method: 'GET', uri: info };
 	if (info.url && !info.uri) info.uri = info.url;
@@ -99,8 +99,8 @@ phpfpm.prototype.run = function(info, cb, fastcgiParams)
 	if (!phpfile.match(/^\//)) phpfile = this.options.documentRoot + phpfile;
 
 
-	// Server vars
-	var defaultFastcgiParams = {
+	// Default server vars
+	var fastcgiParams = info.fastcgiParams || {
 		QUERY_STRING: info.queryString || '',
 		REQUEST_METHOD: info.method,
 		CONTENT_TYPE: info.contentType || '',
@@ -121,14 +121,10 @@ phpfpm.prototype.run = function(info, cb, fastcgiParams)
 		REDIRECT_STATUS: 200
 	};
 
-	fastcgiParams = fastcgiParams || {};
-	for (var attrname in fastcgiParams) { 
-		defaultFastcgiParams[attrname] = fastcgiParams[attrname]; 
-	}
 
 	var self = this;
 
-	self.client.request(defaultFastcgiParams, function(err, request)
+	self.client.request(fastcgiParams, function(err, request)
 	{
 		if (err)
 		{
