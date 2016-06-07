@@ -98,8 +98,9 @@ phpfpm.prototype.run = function(info, cb)
 	var phpfile = info.uri;
 	if (!phpfile.match(/^\//)) phpfile = this.options.documentRoot + phpfile;
 
-	var HELLOWORLD_PARAMS = 
-	{
+
+	// Default server vars
+	var fastcgiParams = info.fastcgiParams || {
 		QUERY_STRING: info.queryString || '',
 		REQUEST_METHOD: info.method,
 		CONTENT_TYPE: info.contentType || '',
@@ -120,9 +121,10 @@ phpfpm.prototype.run = function(info, cb)
 		REDIRECT_STATUS: 200
 	};
 
+
 	var self = this;
 
-	self.client.request(HELLOWORLD_PARAMS, function(err, request)
+	self.client.request(fastcgiParams, function(err, request)
 	{
 		if (err)
 		{
