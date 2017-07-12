@@ -132,7 +132,7 @@ phpfpm.prototype.run = function(info, cb)
 			return;
 		}
 
-		var body = '',errors = '', headers = '';
+		var body = '',errors = '';
 		request.stdout.on('data', function(data)
 		{
 			body += data.toString('utf8');
@@ -145,17 +145,8 @@ phpfpm.prototype.run = function(info, cb)
 		
 		request.stdout.on('end', function()
 		{
-			headers = body.replace(/^([\s\S]*?)\r\n\r\n/, '$1');
-			headers = headers.split("\n").reduce(function(acc, line) {
-				var head = line.split(":");
-				var key = head[0].trim();
-				var value = head[1].trim();
-				acc[key] = value;
-				return acc;
-			}, {});
-
 			body = body.replace(/^[\s\S]*?\r\n\r\n/, '');
-			cb(false, body, errors, headers);
+			cb(false, body, errors);
 		});
 
 		if (info.method == 'POST')
