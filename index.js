@@ -120,7 +120,6 @@ phpfpm.prototype.run = function(info, cb) {
             errors = '',
             headers = '';
         request.stdout.on('data', function(data) {
-            console.log(data.toString('utf-8'));
             body += data.toString('utf8');
         });
 
