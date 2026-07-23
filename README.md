@@ -1,6 +1,14 @@
 # node-phpfpm
 node.js run php scripts via phpfpm
 
+## Sponsors
+
+This project is kindly supported by:
+
+- [Maplogs](https://maplogs.com) — Maplogs
+- [Dict.cat](https://dict.cat) — Dict.cat
+- [SeekMap](https://seekmap.ai) — SeekMap
+
 [![NPM](https://nodei.co/npm/node-phpfpm.png?downloads=true&stars=true)](https://www.npmjs.com/package/node-phpfpm)
 
 ```
